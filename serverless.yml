@@ -15,9 +15,9 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs12.x
-  region: us-east-2 # This is the AWS region where the service will be deployed.
-  httpApi: # HTTP API is used by default. To learn about the available options in API Gateway, see https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html
+  runtime: nodejs14.x
+  region: us-east-1 # This is the AWS region where the service will be deployed.
+  httpApi: swingapi
     cors: true
     payload: '1.0'
   stackTags: # Add CloudFormation stack tags here
@@ -30,18 +30,18 @@ package:
   individually: true
 
 functions:
-  graphql.ts:
-    description: graphql.ts function deployed on AWS Lambda
+  swingapi:
+    description: swingapi function deployed on AWS Lambda
     package:
-      artifact: api/dist/zipball/graphql.ts.zip # This is the default location of the zip file generated during the deploy command.
+      artifact: api/dist/zipball/graphql.zip # This is the default location of the zip file generated during the deploy command.
     memorySize: 1024 # mb
     timeout: 25 # seconds (max: 29)
     tags: # Tags for this specific lambda function
-      endpoint: /.redwood/functions/graphql.ts
+      endpoint: /.redwood/functions/graphql
     # Uncomment this section to add environment variables either from the Serverless dotenv plugin or using Serverless params
     # environment:
     #   YOUR_FIRST_ENV_VARIABLE: ${env:YOUR_FIRST_ENV_VARIABLE}
-    handler: graphql.ts.handler
+    handler: graphql.handler
     events:
       - httpApi:
           path: /.redwood/functions/graphql.ts
