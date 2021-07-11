@@ -1,6 +1,6 @@
 import { render } from '@redwoodjs/testing'
 
-import HomePage from '../HomePage2/HomePage'
+import HomePage from '../HomePage/HomePage'
 
 describe('HomePage', () => {
   it('renders successfully', () => {

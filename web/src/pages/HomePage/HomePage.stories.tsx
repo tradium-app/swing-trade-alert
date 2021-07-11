@@ -1,4 +1,4 @@
-import HomePage from '../HomePage2/HomePage'
+import HomePage from './HomePage'
 
 export const generated = () => {
   return <HomePage />

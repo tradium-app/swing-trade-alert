@@ -1,54 +1,26 @@
-import React from 'react'
 import styled from 'styled-components'
-import TodoItem from 'src/components/TodoItem'
-import { useMutation } from '@redwoodjs/web'
+import AddTodo from 'src/components/AddTodo'
+import TodoListCell from 'src/components/TodoListCell'
 
-export const QUERY = gql`
-  query TODOS {
-    todos {
-      id
-      body
-      status
-    }
-  }
-`
-const UPDATE_TODO_STATUS = gql`
-  mutation TodoListCell_CheckTodo($id: Int!, $status: String!) {
-    updateTodoStatus(id: $id, status: $status) {
-      id
-      __typename
-      status
-    }
-  }
-`
-
-export const Loading = () => <div>Loading...</div>
-
-export const Success = ({ todos }) => {
-  const [updateTodoStatus] = useMutation(UPDATE_TODO_STATUS)
-
-  const handleCheckClick = (id, status) => {
-    updateTodoStatus({
-      variables: { id, status },
-      optimisticResponse: {
-        __typename: 'Mutation',
-        updateTodoStatus: { __typename: 'Todo', id, status: 'loading' },
-      },
-    })
-  }
-
-  const list = todos.map((todo) => (
-    <TodoItem key={todo.id} {...todo} onClickCheck={handleCheckClick} />
-  ))
-
-  return <SC.List>{list}</SC.List>
+const HomePage = () => {
+  return (
+    <SC.Wrapper>
+      <SC.Title>Todo List</SC.Title>
+      <TodoListCell />
+      <AddTodo />
+    </SC.Wrapper>
+  )
 }
 
-export const beforeQuery = (props) => ({
-  variables: props,
-})
-
 const SC = {}
-SC.List = styled.ul`
-  padding: 0;
+SC.Wrapper = styled.div`
+  width: 600px;
+  margin: 0 auto;
 `
+SC.Title = styled.h1`
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 100px;
+`
+
+export default HomePage

@@ -12,6 +12,8 @@ web/public/mockServiceWorker.js
 web/types/graphql.d.ts
 api/types/graphql.d.ts
 
+# IDE
+.vscode/settings.json
 
 # Deployment
 .serverless

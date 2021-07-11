@@ -2,7 +2,7 @@ export const schema = gql`
   type Todo {
     id: String!
     body: String!
-    status: String!
+    status: String
   }
 
   type Query {
