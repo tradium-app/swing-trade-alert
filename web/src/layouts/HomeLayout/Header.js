@@ -4,8 +4,8 @@ import { Link } from '@redwoodjs/router'
 import { Button } from 'reactstrap'
 import toastr from 'toastr'
 
-import logoLightSm from '../../assets/images/logo-light-sm.svg'
-import logoLightLg from '../../assets/images/logo-light-lg.svg'
+import LogoLightSm from '../../assets/images/logo-light-sm.svg'
+import LogoLightLg from '../../assets/images/logo-light-lg.svg'
 import { loginUser, logoutUser } from '../../store/actions'
 import NotificationDropdown from 'src/components/Common/TopbarDropdown/NotificationDropdown'
 import ProfileMenu from 'src/components/Common/TopbarDropdown/ProfileMenu'
@@ -41,36 +41,19 @@ const Header = (props) => {
             <div className="navbar-brand-box">
               <Link to="/" className="logo logo-light">
                 <span className="logo-sm">
-                  <img src={logoLightSm} alt="" height="32" />
+                  <LogoLightSm height="32" />
                 </span>
                 <span className="logo-lg">
-                  <img src={logoLightLg} alt="" height="40" />
+                  <LogoLightLg height="40" />
                 </span>
               </Link>
             </div>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="app-search d-none d-lg-block"
-          >
-            <div className="position-relative">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Search Polls..."
-                onChange={(event) => {
-                  setSearchTerm(event.target.value)
-                }}
-              />
-              <span className="bx bx-search-alt"></span>
-            </div>
-          </form>
-
           <div className="d-flex">
             <div className="d-flex mr-2 align-items-center">
               <Button type="button" color="primary" onClick={createPollHandler}>
-                Create a Poll
+                Create an Alert
               </Button>
               <CreatePollModal isShowing={isShowing} toggle={toggle} />
             </div>

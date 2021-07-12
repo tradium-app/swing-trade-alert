@@ -1,24 +1,18 @@
-import styled from 'styled-components'
+import React from 'react'
+import { Helmet } from 'react-helmet'
 import WatchListCell from 'src/components/WatchListCell'
 
 const HomePage = () => {
   return (
-    <SC.Wrapper>
-      <SC.Title>Swing Trade Alerts - lazy swing traders</SC.Title>
-      <WatchListCell />
-    </SC.Wrapper>
+    <React.Fragment>
+      <Helmet>
+        <title>Swing Trade Alerts</title>
+      </Helmet>
+      <div className="page-content">
+        <WatchListCell />
+      </div>
+    </React.Fragment>
   )
 }
-
-const SC = {}
-SC.Wrapper = styled.div`
-  width: 600px;
-  margin: 0 auto;
-`
-SC.Title = styled.h1`
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 100px;
-`
 
 export default HomePage
