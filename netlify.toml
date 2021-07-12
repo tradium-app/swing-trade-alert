@@ -3,12 +3,6 @@ command = "yarn rw deploy netlify"
 publish = "web/dist"
 functions = "api/dist/functions"
 
-[context.branch-deploy]
-  environment = { NODE_ENV = "development", NODE_VERSION = "14" }
-
-[context.production]
-  environment = { NODE_ENV = "production", NODE_VERSION = "14" }
-
 [dev]
   # To use [Netlify Dev](https://www.netlify.com/products/dev/),
   # install netlify-cli from https://docs.netlify.com/cli/get-started/#installation
