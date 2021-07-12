@@ -10,9 +10,29 @@ generator client {
 
 // Define your own datamodels here and run `yarn redwood prisma migrate dev`
 // to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model Todo {
-  id     String @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  body   String
-  status String
+
+model User {
+  id           String  @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  name         String?
+  authProvider String
+  fcmToken     String
+  countryCode  String
+  timeZone     String
+  ipAddress    String
+  createdDate  String
+  modifiedDate String
+}
+
+model Stock {
+  id               String  @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  symbol           String?
+  company          String
+  price            Float
+  changePercent    Float
+  marketCap        Float
+  peRatio          Float
+  week52High       Float
+  week52Low        Float
+  ytdChangePercent Float
+  modifiedDate     String
 }

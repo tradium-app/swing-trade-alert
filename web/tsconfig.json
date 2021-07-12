@@ -11,20 +11,30 @@
       "./src",
       "../.redwood/types/mirror/web/src"
     ],
-    "paths": {
-      "src/*": [
-        "./src/*",
-        "../.redwood/types/mirror/web/src/*"
-      ],
-      "types/*": ["./types/*"]
-    },
-    "typeRoots": ["../node_modules/@types", "./node_modules/@types"],
-    "types": ["jest"],
-    "jsx": "preserve",
+    "typeRoots": [
+      "../node_modules/@types",
+      "./node_modules/@types"
+    ],
+    "types": [
+      "jest"
+    ],
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": [
     "src",
     "../.redwood/types/includes/all-*",
-    "../.redwood/types/includes/web-*",
+    "../.redwood/types/includes/web-*"
   ]
 }

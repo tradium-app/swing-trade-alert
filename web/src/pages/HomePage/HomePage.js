@@ -1,13 +1,11 @@
 import styled from 'styled-components'
-import AddTodo from 'src/components/AddTodo'
-import TodoListCell from 'src/components/TodoListCell'
+import WatchListCell from 'src/components/WatchListCell'
 
 const HomePage = () => {
   return (
     <SC.Wrapper>
-      <SC.Title>Todo List</SC.Title>
-      <TodoListCell />
-      <AddTodo />
+      <SC.Title>Swing Trade Alerts - lazy swing traders</SC.Title>
+      <WatchListCell />
     </SC.Wrapper>
   )
 }

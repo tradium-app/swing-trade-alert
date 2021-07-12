@@ -5,11 +5,11 @@ import LogRocket from 'logrocket'
 import storage from 'redux-persist/lib/storage'
 
 import rootReducer from './reducers'
-import rootSaga from './sagas'
+// import rootSaga from './sagas'
 
 const persistConfig = {
-    key: 'root',
-    storage,
+  key: 'root',
+  storage,
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -17,8 +17,11 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 const sagaMiddleware = createSagaMiddleware()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(sagaMiddleware, LogRocket.reduxMiddleware())))
+const store = createStore(
+  persistedReducer,
+  composeEnhancers(applyMiddleware(sagaMiddleware, LogRocket.reduxMiddleware()))
+)
 const persistor = persistStore(store)
-sagaMiddleware.run(rootSaga)
+// sagaMiddleware.run(rootSaga)
 
 export { store, persistor }
